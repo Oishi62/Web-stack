@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Day and Time</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Display Current Day and Time</h1>
+  <button id="displayBtn">Display Day and Time</button>
+  <div id="output"></div>
+
+  <script>
+    // Array to map days of the week
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    // Function to format the time with leading zero
+    function formatTimePart(timePart) {
+      return timePart < 10 ? `0${timePart}` : timePart;
+    }
+
+    // Function to display the current day and time
+    function displayDayAndTime() {
+      const currentDate = new Date();
+      const dayOfWeek = daysOfWeek[currentDate.getDay()];
+      const hours = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
+      const seconds = currentDate.getSeconds();
+      const meridiem = hours >= 12 ? "PM" : "AM";
+
+      const outputElement = document.getElementById("output");
+      outputElement.innerHTML = `Today is: ${dayOfWeek}.<br>Current time is: ${formatTimePart(hours % 12)} ${meridiem} : ${formatTimePart(minutes)} : ${formatTimePart(seconds)}`;
+    }
+
+    // Add click event listener to the button
+    document.getElementById("displayBtn").addEventListener("click", displayDayAndTime);
+  </script>
+</body>
+</html>

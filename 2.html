@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Number Guessing Game</h1>
+  <button id="startBtn">Start the Game</button>
+  <div id="output"></div>
+
+  <script>
+    document.getElementById("startBtn").addEventListener("click", function() {
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      const userGuess = parseInt(prompt("Guess a number between 1 and 10:"));
+
+      const outputElement = document.getElementById("output");
+      if (userGuess === randomNumber) {
+        outputElement.innerHTML = "Good Work! You guessed the correct number.";
+      } else {
+        outputElement.innerHTML = `Not matched. The correct number was ${randomNumber}.`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* Add your custom styling here */
+.status {
+    margin-left: 10px;
+}
+.valid {
+    color: green;
+}
+.invalid {
+    color: red;
+}

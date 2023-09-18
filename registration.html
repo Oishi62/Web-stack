@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Background.css">
+    <style>
+        td{
+            padding:10px;
+        }
+        body{
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function dobcheck()
+{
+    var birth = document.getElementById('bday')
+    if(birth != "")
+    {
+
+        var record=document.getElementById('bday').value.trim();
+        var currentdate=new Date();    
+        var day1 = currentdate3.getDate();   
+        var month1 = currentdate3.getMonth();
+        month1++;     
+        var year11 = currentdate3.getFullYear()-17;
+        var year2= currentdate3.getFullYear()-100;   
+        var record_day1=record.split("/");
+        var sum=record_day1[1]+'/'+record_day1[0]+'/'+record_day1[2];  
+        var current= month1+'/'+day1+'/'+year11;
+        var current1= month1+'/'+day1+'/'+year2;
+        var d1=new Date(current)
+        var d2=new Date(current1)
+        var record1 = new Date(sum);      
+        if(record1 > d1)
+        {
+
+            alert("Sorry ! Minors need parential guidance to use this website");
+            document.getElementById('bday').blur();
+            document.getElementById('bday').value="";
+            document.getElementById('bday').focus();
+            return false;
+        }
+    } 
+}
+        function Password_confirm()
+        {
+            var password = document.getElementById("input").value;
+            var confirm_password = document.getElementById("confirm").value;
+            if(confirm_password!=password)
+            {
+                alert("Your password is not matching, please confirm the password correctly.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="Header">
+        <img src="cloud.png" alt="error" id="Cloud1">
+        <br><br><hr style="width:60%">
+        <h1 id="TopHeading" style="text-align: center;">Form Illustration</h1>
+        <hr style="width:40%"><br><br>
+        <img src="cloud.png" alt="error" id="Cloud2"> 
+    </div>
+    <form action="" method="post">
+        <center>
+        <table>
+            <tr>
+                <td>Enter your Full Name</td>
+                <td><input type='text' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)" minlength="3"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter your Email Address</td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Enter the password</td>
+                <td><input type="password"placeholder="Must be at least 8 characters long and contain a mix of letters and numbers" minlength="8" id="input"  onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"/></td>
+            </tr>
+            <tr>
+                <td>Confirm your password please</td>
+                <td><input type="text" id="confirm"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" data-date="" data-date-format="YYYY MM DD" value="2015-08-09" id="bday" onblur="return dobcheck()"></td>
+            </tr>
+            <tr>
+                <td>
+                    
+                    <input type="submit" value="SUBMIT" style="font-family: 'Klee One';font-weight:bold;border:2px dotted black;width:200px;" onclick="return Password_confirm()"><br><br>
+                    <input type="reset" value="RESET" style="font-family: 'Klee One';font-weight:bold;border:2px dotted black;width:100px;"></td>
+            </tr>
+        </center>
+        </table>
+
+    </form>
+</body>
+</html>

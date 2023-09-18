@@ -1,0 +1,50 @@
+/*
+    To allow the fonts to work copy paste this:
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+
+    and add this just after the body:
+    <div id="Header">
+    <img src="cloud.png" alt="error" id="Cloud1">
+    <br><br><hr style="width:60%">
+    <h1 id="TopHeading" style="text-align: center;">Table Illustration</h1>
+    <br><hr style="width:40%"><br><br>
+    <img src="cloud.png" alt="error" id="Cloud2"> 
+    </div>
+*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Klee One';
+}
+hr{
+    border-style: dotted none none none;
+    height:0;
+    border-width: thick;
+    border-color:black;
+    margin:0 auto 0 auto;
+}
+#TopHeading{
+    color:#74bba3;
+    font-family: 'Parisienne';
+    font-size: 40px;
+}
+#Cloud1{
+    position: relative;
+    top:150px;
+    left:150px;
+}
+#Cloud2{
+    position: relative;
+    left:1150px;
+    top:-170px;
+}

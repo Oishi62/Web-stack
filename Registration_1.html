@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Background.css">
+    <style>
+        td{
+            padding:10px;
+        }
+        body{
+            font-weight: bold;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+
+    <script>
+        function validateName(input) 
+        {
+            var nameRegex = /^[A-Za-z\s]+$/; // Regular expression for letters and spaces
+
+            if (nameRegex.test(input.value)) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            } else 
+            {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+        }
+
+
+        function validateEmail(input) 
+        {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+
+            if (emailRegex.test(input.value)) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+        }
+
+
+        function validatePassword(input) 
+        {
+            var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Requires at least 8 characters, including letters and digits
+
+            if (passwordRegex.test(input.value)) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+
+            validateConfirmPassword(document.getElementById('confirm')); // Trigger confirm password validation
+        }
+
+        function validateConfirmPassword(input)
+        {
+            var password = document.getElementById('input').value;
+
+            if (input.value === password) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+        }
+
+        function dobcheck() {
+            var birth = document.getElementById('bday')
+    if(birth != "")
+    {
+
+        var record=document.getElementById('bday').value.trim();
+        var currentdate=new Date();    
+        var day1 = currentdate3.getDate();   
+        var month1 = currentdate3.getMonth();
+        month1++;     
+        var year11 = currentdate3.getFullYear()-17;
+        var year2= currentdate3.getFullYear()-100;   
+        var record_day1=record.split("/");
+        var sum=record_day1[1]+'/'+record_day1[0]+'/'+record_day1[2];  
+        var current= month1+'/'+day1+'/'+year11;
+        var current1= month1+'/'+day1+'/'+year2;
+        var d1=new Date(current)
+        var d2=new Date(current1)
+        var record1 = new Date(sum);      
+        if(record1 > d1)
+        {
+
+            alert("Sorry ! Minors need parential guidance to use this website");
+            document.getElementById('bday').blur();
+            document.getElementById('bday').value="";
+            document.getElementById('bday').focus();
+            return false;
+        }
+    }
+}
+
+function calculateAge(birthDate) {
+    var currentDate = new Date();
+    var age = currentDate.getFullYear() - birthDate.getFullYear();
+
+    if (currentDate.getMonth() < birthDate.getMonth() ||
+        (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+function updateSubmitButton() {
+    var dobInput = document.getElementById('bday');
+    var age = calculateAge(new Date(dobInput.value));
+    var submitButton = document.getElementById('submitBtn');
+
+    if (age >= 18) {
+        submitButton.removeAttribute('disabled');
+    } else {
+        submitButton.setAttribute('disabled', 'true');
+    }
+}
+    </script>
+</head>
+<body>
+    <div id="Header">
+        <img src="cloud.png" alt="error" id="Cloud1">
+        <br><br><hr style="width:60%">
+        <h1 id="TopHeading" style="text-align: center;">Form Illustration</h1>
+        <hr style="width:40%"><br><br>
+        <img src="cloud.png" alt="error" id="Cloud2"> 
+    </div>
+    <form action="" method="post">
+        <center>
+            <table>
+                <tr>
+                    <td>Enter your Full Name</td>
+                    <td><input type='text' onkeyup="validateName(this)" minlength="3" /></td>
+                </tr>
+                <tr>
+                    <td>Enter your Email Address</td>
+                    <td><input type="email" id="email" name="email" onkeyup="validateEmail(this)" /></td>
+                </tr>
+                <tr>
+                    <td>Enter the password</td>
+                    <td><input type="password" placeholder="Must be at least 8 characters long and contain a mix of letters and numbers" minlength="8" id="input" onkeyup="validatePassword(this)" /></td>
+                </tr>
+                <tr>
+                    <td>Confirm your password please</td>
+                    <td><input type="password" id="confirm" onkeyup="validateConfirmPassword(this)" /></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="date" id="bday" onblur="dobcheck(); updateSubmitButton();" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" id="submitBtn" value="SUBMIT" style="font-family: 'Klee One'; font-weight: bold; border: 2px dotted black; width: 200px;" disabled><br><br>
+                        <input type="reset" value="RESET" style="font-family: 'Klee One'; font-weight: bold; border: 2px dotted black; width: 100px;"></td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+</html>

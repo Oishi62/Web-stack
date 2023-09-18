@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        /* Set the HTML and body to take up the full viewport height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set the map container to take up the remaining height */
+        #mapContainer {
+            height: calc(100% - 20px); /* Leave some space for the text above */
+            position: relative;
+        }
+
+        /* Style the text above the map */
+        #locationInfo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mapContainer">
+        <div id="myMap"></div>
+        <div id="locationInfo">Latitude: <span id="latitude"></span><br>Longitude: <span id="longitude"></span></div>
+    </div>
+    
+    <script type='text/javascript'
+        src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AuaUTURQ4FP8bvhsXAB33863ETnQ9PhlikdC0PIOaQteTsKZ6rvbqe5pd7B9crq8'
+        async defer>
+    </script>
+
+    <script type="text/javascript">
+        var latitudeElement = document.getElementById("latitude");
+        var longitudeElement = document.getElementById("longitude");
+        var map;
+        var userLocationMarker;
+
+        function GetMap() {
+            map = new Microsoft.Maps.Map('#myMap');
+
+            // Call the function to get the user's location and update the map center
+            getLocation();
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                latitudeElement.textContent = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            console.log(longitude)
+            console.log(latitude)
+            latitudeElement.textContent = latitude.toFixed(6);
+            longitudeElement.textContent = longitude.toFixed(6);
+
+            // Update the map center with the user's coordinates
+            var center = new Microsoft.Maps.Location(latitude, longitude);
+            map.setView({ center: center, zoom: 15 }); // You can adjust the zoom level here
+            
+            // Create a red pushpin marker at the user's location
+            userLocationMarker = new Microsoft.Maps.Pushpin(center, { color: 'red' });
+            map.entities.push(userLocationMarker);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+    "users":[
+    {
+    "name":"Oishi",
+    "age":21,
+    "skills":["Java","C","Python","Data Structures"],
+    "address":{
+        "city":"Kolkata",
+        "state":"West Bengal"
+}
+    },
+{
+"name":"Oishi",
+    "age":21,
+    "skills":["Java","C","Python","Data Structures"],
+    "address":{
+        "city":"Kolkata",
+        "state":"West Bengal"
+
+    }
+},
+{
+    "name":"Oishi",
+    "age":21,
+    "skills":["Java","C","Python","Data Structures"],
+    "address":{
+        "city":"Kolkata",
+        "state":"West Bengal"
+}
+}
+    ]
+}

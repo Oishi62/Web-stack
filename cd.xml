@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cd_catalog>
+    <cd>
+        <cd_type>CD-ROM</cd_type>
+        <cd_size>15MB</cd_size>
+        <cd_content>Bollywood songs</cd_content>
+        <cd_price>200</cd_price>
+    </cd>
+    <cd>
+        <cd_type>CD-ROM</cd_type>
+        <cd_size>15MB</cd_size>
+        <cd_content>Bollywood songs</cd_content>
+        <cd_price>200</cd_price>
+    </cd>
+    <cd>
+        <cd_type>CD-ROM</cd_type>
+        <cd_size>15MB</cd_size>
+        <cd_content>Bollywood songs</cd_content>
+        <cd_price>200</cd_price>
+    </cd>
+    <cd>
+        <cd_type>CD-ROM</cd_type>
+        <cd_size>15MB</cd_size>
+        <cd_content>Bollywood songs</cd_content>
+        <cd_price>200</cd_price>
+    </cd>
+    <cd>
+        <cd_type>CD-ROM</cd_type>
+        <cd_size>15MB</cd_size>
+        <cd_content>Bollywood songs</cd_content>
+        <cd_price>200</cd_price>
+    </cd>
+</cd_catalog>

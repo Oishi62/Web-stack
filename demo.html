@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*const obj={
+            name:"Oishi",
+            age:21,
+            skills:["Java","C","Python","Data Structures"],
+            address:{
+                city:"Kolkata",
+                state:"West Bengal"
+            }
+        }
+        
+        console.log(obj)*/
+        fetch('obj.json')
+        .then(response=>response.json())
+        .then(json=>{
+            console.log(json);
+        })
+
+        </script>
+</body>
+</html>
+
+
+

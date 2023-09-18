@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website URL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 100px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    #url {
+      font-size: 18px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Website</h1>
+  <p>Your current website URL is:</p>
+  <p id="url">Loading...</p>
+
+  <script>
+    // Get the current website URL
+    const currentURL = window.location.href;
+
+    // Display the current website URL
+    document.getElementById("url").textContent = currentURL;
+  </script>
+</body>
+</html>
